@@ -1,5 +1,4 @@
-import { SafeResult } from "shared";
-import * as z from "zod";
+import type { SafeResult } from "types";
 
 export const saveJson = (key: string, data: unknown): SafeResult<string> => {
   try {

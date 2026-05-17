@@ -42,6 +42,8 @@ export type RecordConversion<T extends Record<PropertyKey, unknown>, U extends {
 > &
   U;
 
+export type GenRecord<Keys extends PropertyKey, Value> = { [K in Keys]: Value };
+
 /**
 @description
 A utility type that makes just specific properties of first record optional.
@@ -57,13 +59,11 @@ type SafeResultSuccess<T> = {
   data: T;
 };
 
-type SafeResultFailure = {
+type SafeResultFailure<T> = {
   success: false;
-  error: unknown;
+  error: T;
 };
 
-export type SafeResult<T> = SafeResultSuccess<T> | SafeResultFailure;
+export type SafeResult<T, U = Error> = SafeResultSuccess<T> | SafeResultFailure<U>;
 
-export type SafeTuple<T, U extends Error = Error> = [T, null] | [null, U];
-
-export type GenRecord<Keys extends string, Value> = { [K in Keys]: Value };
+export type SafeTuple<T, U = Error> = [T, null] | [null, U];

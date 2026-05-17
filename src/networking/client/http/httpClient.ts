@@ -1,4 +1,4 @@
-import * as methods from "./httpMethods.js";
+import * as methods from "./httpMethods";
 
 type HttpClientMethod<T extends methods.Method> = (path: string, init: Parameters<T>[1]) => ReturnType<T>;
 

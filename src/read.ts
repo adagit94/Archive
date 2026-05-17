@@ -1,5 +1,5 @@
-import { isObject } from "assert.js";
-import { difference, intersection } from "filter.js";
+import { isObject } from "assert";
+import { difference, intersection } from "filter";
 import { get } from "lodash";
 
 /**

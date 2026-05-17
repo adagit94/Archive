@@ -1,5 +1,5 @@
 import Monitor from "utils/Monitor";
-import IdbUtils from "./IDBUtils.js";
+import IdbUtils from "./IDBUtils";
 
 type DataItem = { id: string | number; [k: string]: unknown };
 export type Data = DataItem | DataItem[];

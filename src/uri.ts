@@ -1,5 +1,5 @@
-import { PrimitiveValue } from "types.js"
-import TypesUtils from "TypesUtils.js"
+import { PrimitiveValue } from "types"
+import TypesUtils from "TypesUtils"
 
 export const encodeUriVals = (vals: PrimitiveValue[]) => vals.map(encodeURIComponent)
 

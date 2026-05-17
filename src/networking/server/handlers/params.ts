@@ -1,4 +1,4 @@
-import { SchemaConstraint } from "schemas/types.js";
+import { SchemaConstraint } from "schemas/types";
 
 export function handleReqParams<T extends SchemaConstraint>(
   req: Request,

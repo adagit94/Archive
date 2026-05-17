@@ -1,4 +1,4 @@
-import { PrimitiveValue } from "types.js";
+import type { PrimitiveValue } from "types";
 
 export enum ValueType {
   // primitives

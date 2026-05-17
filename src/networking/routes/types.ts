@@ -1,12 +1,13 @@
-import { Methods, MethodWithoutBody } from "networking/client/http/httpMethods.js";
-import { SchemaConstraint, SchemaValue } from "schemas/types.js";
-import { GenRecord } from "types.js";
+import type { Methods, MethodWithoutBody } from "networking/client/http/httpMethods";
+import type { SchemaConstraint } from "schemas/types";
+import type { GenRecord } from "types";
 
 type GenSchemasConstraint<Keys extends string> = GenRecord<Keys, SchemaConstraint>;
 
 type RouteMethodSchemaKey = "req" | "res" | "query";
 
 type RouteMethodConstraint<SchemasKeys extends RouteMethodSchemaKey = RouteMethodSchemaKey> = {
+  handler: (...args: unknown[]) => unknown;
   schemas: GenSchemasConstraint<SchemasKeys>;
 };
 
@@ -16,12 +17,10 @@ export type RouteMethodsConstraint = {
     : RouteMethodConstraint;
 };
 
-export type ComposeRoutePathConstraint = (params?: Partial<SchemaValue<RouteConstraint["schemas"]["path"]>>) => string;
-
 export type RouteConstraint = {
-  methods: Partial<RouteMethodsConstraint>;
+  path: (...segments: string[]) => string
   schemas: GenSchemasConstraint<"path">;
-  composePath: ComposeRoutePathConstraint
+  methods: Partial<RouteMethodsConstraint>;
 };
 
 export type RoutesConstraint = Record<string, RouteConstraint>;

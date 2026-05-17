@@ -1,4 +1,5 @@
-import { SafeRes } from "networking/client/types.js";
+import type { SafeRes } from "networking/client/types";
+import type { Schema } from "schemas/types";
 
 export const checkResStatus = async (res: Response) => {
   if (res.ok) return res;
@@ -25,16 +26,15 @@ export const readRes = async (res: Response) => {
   }
 };
 
-export const safeReq = async <T>(req: () => Promise<T>): SafeRes<T> => {
+export const safeReq = async <Success, Error>(req: () => Promise<Success>, processErr: (err: unknown) => Error): SafeRes<Success, Error> => {
   try {
     return { success: true, data: await req() };
-  } catch (error) {
-    console.error(error);
-
+  } catch (err) {
     return {
       success: false,
-      error,
+      error: processErr(err),
     };
   }
 };
+
 

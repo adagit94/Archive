@@ -1,7 +1,7 @@
-import { SafeResult } from "types.js";
+import type { SafeResult } from "types";
 
 export type FetchURL = string | URL;
 export type FetchReqInit = RequestInit;
 export type Fetch<Init extends RequestInit> = (url: FetchURL, init?: Init) => Promise<Response>;
 
-export type SafeRes<T> = Promise<SafeResult<T>>;
+export type SafeRes<T, U> = Promise<SafeResult<T, U>>;

@@ -1,4 +1,4 @@
-import { Data } from "./Idb.js";
+import { Data } from "./Idb";
 
 export default class IdbUtils {
   static async setDataItems(store: IDBObjectStore, operation: "add" | "put", data: Data) {

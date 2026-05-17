@@ -1,5 +1,5 @@
-import { isRecord } from "assert.js";
-import { RecursiveAssignment } from "types.js";
+import { isRecord } from "assert";
+import { RecursiveAssignment } from "types";
 
 export function assign<T extends Record<PropertyKey, unknown>, U extends Record<PropertyKey, unknown>>(
   o1: T,

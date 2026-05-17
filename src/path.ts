@@ -1,4 +1,4 @@
-import { isRecord } from "assert.js";
+import { isRecord } from "assert";
 
 export const changeIndex = <T>(items: T[], currentIndex: number, newIndex: number) => {
   items = [...items];

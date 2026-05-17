@@ -1,5 +1,5 @@
-import { Fetch, FetchReqInit } from "networking/client/types.js";
-import { HttpMethod } from "networking/types.js";
+import { Fetch, FetchReqInit } from "networking/client/types";
+import { HttpMethod } from "networking/types";
 
 type Post = Fetch<Omit<FetchReqInit, "method">>;
 const post: Post = (url, init) => fetch(url, { ...init, method: HttpMethod.Post });
