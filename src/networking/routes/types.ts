@@ -7,7 +7,6 @@ type GenSchemasConstraint<Keys extends string> = GenRecord<Keys, SchemaConstrain
 type RouteMethodSchemaKey = "req" | "res" | "query";
 
 type RouteMethodConstraint<SchemasKeys extends RouteMethodSchemaKey = RouteMethodSchemaKey> = {
-  handler: (...args: unknown[]) => unknown;
   schemas: GenSchemasConstraint<SchemasKeys>;
 };
 

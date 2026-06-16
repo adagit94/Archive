@@ -1,4 +1,4 @@
-import { Fetch, FetchReqInit } from "networking/client/types";
+import type { Fetch, FetchReqInit } from "networking/client/types";
 import { HttpMethod } from "networking/types";
 
 type Post = Fetch<Omit<FetchReqInit, "method">>;

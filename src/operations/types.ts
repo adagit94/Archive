@@ -45,12 +45,10 @@ type NullComparisonOperator = "=" | "!="
 type UnOperation<Operator, Operand> = [Operator, Operand]
 type BiOperation<LeftOperand, Operator, RightOperand> = [LeftOperand, Operator, RightOperand]
 
-type StringInclusionOperation<T extends string = string> = BiOperation<T, StringInclusionOperator, string>
-type NumberComparisonOperation<T extends number = number> = BiOperation<T, NumberComparisonOperator, number>
-type DateComparisonOperation<T extends string | number> = BiOperation<T, DateComparisonOperator, T>
-type BooleanComparisonOperation<T extends boolean = boolean> = BiOperation<T, BooleanComparisonOperator, boolean>
+type StringInclusionOperation<T> = BiOperation<T, StringInclusionOperator, string>
+type NumberComparisonOperation<T> = BiOperation<T, NumberComparisonOperator, number>
+type DateComparisonOperation<T, U extends string | number> = BiOperation<T, DateComparisonOperator, U>
+type BooleanComparisonOperation<T = boolean> = BiOperation<T, BooleanComparisonOperator, boolean>
 type NullComparisonOperation<T> = BiOperation<T, NullComparisonOperator, null>
 
-// type ComparisonOperation = StringInclusionOperation | NumberComparisonOperation | DateComparisonOperation | BooleanComparisonOperation | NullComparisonOperation
-
-// export type { ComparisonOperation }
+export type { StringInclusionOperation, NumberComparisonOperation, DateComparisonOperation, BooleanComparisonOperation, NullComparisonOperation }
