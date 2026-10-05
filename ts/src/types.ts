@@ -68,6 +68,5 @@ export type SafeResult<T, U = Error> = SafeResultSuccess<T> | SafeResultFailure<
 
 export type SafeTuple<T, U = Error> = [T, null] | [null, U];
 
-
 // SP (Singular/Plural)
-export type SP<T> = T | T[]
+export type SP<T> = T | T[];
