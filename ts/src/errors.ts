@@ -1,6 +1,6 @@
 export class CodeError extends Error {
-  constructor(code: number) {
-    super()
+  constructor(code: number, message: string, options?: ErrorOptions) {
+    super(message, options);
     this.code = code;
   }
 
