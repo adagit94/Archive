@@ -46,13 +46,23 @@ export type GenRecord<Keys extends PropertyKey, Value> = { [K in Keys]: Value };
 
 /**
 @description
-A utility type that makes just specific properties of first record optional.
+A utility type that makes just specific properties of record optional in case they aren't already.
 
 @example
 type Rec = RecordOptionals<{ a: number; b: string }, "b"> // { a: number; b?: string }
 */
-export type RecordOptionals<T extends Record<PropertyKey, unknown>, U extends keyof T> = Omit<T, U> &
-  Partial<Pick<T, U>>;
+export type RecordOptionals<R extends Record<PropertyKey, unknown>, Ks extends keyof R> = Omit<R, Ks> &
+  Partial<Pick<R, Ks>>;
+
+/**
+@description
+A utility type that makes just specific properties of record required (non-optional) in case they aren't already.
+
+@example
+type Rec = RecordRequired<{ a?: number; b?: string }, "b"> // { a?: number; b: string }
+*/
+export type RecordRequired<R extends Record<PropertyKey, unknown>, Ks extends keyof R> = Omit<R, Ks> &
+  Required<Pick<R, Ks>>
 
 type SafeResultSuccess<T> = {
   success: true;
