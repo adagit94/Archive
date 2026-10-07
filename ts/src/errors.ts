@@ -6,3 +6,4 @@ export class CodeError extends Error {
 
   public code: number;
 }
+
