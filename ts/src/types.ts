@@ -1,3 +1,5 @@
+import type { CodeError } from "errors"
+
 export type PrimitiveValue = string | number | boolean;
 
 export type Variadic<T, U extends unknown[] = []> = (...args: U) => T;
@@ -74,7 +76,7 @@ type SafeResultFailure<T> = {
   error: T;
 };
 
-export type SafeResult<T, U = Error> = SafeResultSuccess<T> | SafeResultFailure<U>;
+export type SafeResult<T, U = unknown> = SafeResultSuccess<T> | SafeResultFailure<U>;
 
 export type SafeTuple<T, U = unknown> = [T, null] | [null, U];
 
